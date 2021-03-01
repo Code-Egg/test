@@ -33,4 +33,9 @@ jobs:
       - name: Run F script
         run: |
           #sudo bash -x test/test-fail.sh
+      - name: echo var1
+        run: echo ${{ NAME }}
+      - name: echo var2
+        run: echo ${{ NAME }}        
+
 
