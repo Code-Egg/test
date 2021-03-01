@@ -34,8 +34,8 @@ jobs:
         run: |
           #sudo bash -x test/test-fail.sh
       - name: echo var1
-        run: echo ${{ NAME }}
+        run: echo ${{ secrets.NAME }}
       - name: echo var2
-        run: echo ${{ NAME }}        
+        run: echo ${{ secrets.NAME }}        
 
 
