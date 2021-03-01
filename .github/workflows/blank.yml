@@ -27,7 +27,11 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Run F script
         run: |
           git clone https://github.com/Code-Egg/test.git
           sudo bash -x test/test-fail.sh
+      - name: Run S script
+        run: |
+          git clone https://github.com/Code-Egg/test.git
+          sudo bash -x test/test-success.s
