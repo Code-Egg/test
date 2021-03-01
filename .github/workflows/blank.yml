@@ -38,6 +38,8 @@ jobs:
       - name: echo var1
         run: echo "$apple_name"
       - name: echo var2
-        run: echo "$apple_name"        
+        run: echo "$apple_name"  
+        env:
+          apple_name: ${{ secrets.AP }}      
 
 
