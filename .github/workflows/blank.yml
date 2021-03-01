@@ -29,7 +29,7 @@ jobs:
       - name: Run S script
         run: |
           git clone https://github.com/Code-Egg/test.git
-          sudo bash -x test/test-success.s
+          sudo bash -x test/test-success.sh
       - name: Run F script
         run: |
           git clone https://github.com/Code-Egg/test.git
