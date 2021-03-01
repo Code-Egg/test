@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ 'a' == 'a' ]; then
+if [ '${{ secrets.NAME }}' == 'abc' ]; then
     echo 'T'
 else
     echo 'F'
