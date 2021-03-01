@@ -27,7 +27,7 @@ jobs:
         run: echo Hello, world!
       - name: Run S script
         env:
-          apple_name: ${{ secrets.NAME }}      
+          apple_name: ${{ secrets.AP }}      
         run: |
           git clone https://github.com/Code-Egg/test.git
           sudo bash -x test/test-success.sh ${apple_name}
