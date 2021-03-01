@@ -25,9 +25,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-      env:
-        apple_name: ${{ secrets.NAME }}
       - name: Run S script
+        env:
+          apple_name: ${{ secrets.NAME }}      
         run: |
           git clone https://github.com/Code-Egg/test.git
           sudo bash -x test/test-success.sh ${apple_name}
