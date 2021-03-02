@@ -17,7 +17,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      apple_name: ${{ secrets.AP }} 
+      AP: ${{ secrets.AP }} 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -28,20 +28,23 @@ jobs:
         run: echo Hello, world!
       - name: Run S script
         env:
-          apple_name: ${{ secrets.AP }}      
+          AP: ${{ secrets.AP }}      
         run: |
           git clone https://github.com/Code-Egg/test.git
-          sudo bash -x test/test-success.sh "$apple_name"
+          sudo bash -x test/test-success.sh "$AP"
+        with:
+          AP: ${{ secrets.AP }} 
+          status: ${{ job.status }}  
       - name: Run F script
         run: |
           #sudo bash -x test/test-fail.sh
       - name: echo var1
-        run: echo "$apple_name"
+        run: echo "$AP"
         env:
-          apple_name: ${{ secrets.AP }}         
+          AP: ${{ secrets.AP }}         
       - name: echo var2
-        run: echo "$apple_name"  
+        run: echo "$AP"  
         env:
-          apple_name: ${{ secrets.AP }}      
+          AP: ${{ secrets.AP }}      
 
 
