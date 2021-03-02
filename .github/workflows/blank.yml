@@ -35,13 +35,10 @@ jobs:
         run: | 
           echo $REPO_SE
 
-      - name: Run S script
-        env:
-          AP: ${{ secrets.AP }}      
-        if: env.APP != null  
+      - name: Run S script    
+        if: env.REPO_SE != null
         run: |
-          git clone https://github.com/Code-Egg/test.git
-          sudo bash -x test/test-success.sh "$AP"
+          sudo bash -x test/test-success.sh "$REPO_SE"
           echo ${{ job.status }}
      
 
