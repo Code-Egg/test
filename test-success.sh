@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "${1}" == 'abc' ]; then
+if [ "${1}" == 'PLE' ]; then
     echo 'T'
 else
     echo 'F'
