@@ -32,9 +32,7 @@ jobs:
         run: |
           git clone https://github.com/Code-Egg/test.git
           sudo bash -x test/test-success.sh "$AP"
-        with:
-          AP: ${{ secrets.AP }} 
-          status: ${{ job.status }}  
+        status: ${{ job.status }}  
       - name: Run F script
         run: |
           #sudo bash -x test/test-fail.sh
