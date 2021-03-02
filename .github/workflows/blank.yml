@@ -23,7 +23,7 @@ jobs:
     env:
       AP: ${{ secrets.AP }}
       ABC: ${{ secrets.ABC_DEF }}
-      REPO_SE: ${{ REPO_SE }}
+      REPO_SE: ${{ secrets.REPO_SE }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
