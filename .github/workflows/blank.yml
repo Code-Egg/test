@@ -29,6 +29,7 @@ jobs:
       - name: Run S script
         env:
           AP: ${{ secrets.AP }}      
+        if: env.APP != null  
         run: |
           git clone https://github.com/Code-Egg/test.git
           sudo bash -x test/test-success.sh "$AP"
