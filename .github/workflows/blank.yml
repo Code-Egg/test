@@ -33,7 +33,7 @@ jobs:
         env:
           ABC: ${{ secrets.ABC_DEF }}      
         run: | 
-          echo $ABC  
+          echo $REPO_SE
 
       - name: Run S script
         env:
@@ -43,17 +43,6 @@ jobs:
           git clone https://github.com/Code-Egg/test.git
           sudo bash -x test/test-success.sh "$AP"
           echo ${{ job.status }}
-      - name: Run F script
-        run: |
-          #sudo bash -x test/test-fail.sh
-      - name: echo var1
-        run: echo "$AP $QQ"
-        env:
-          AP: ${{ secrets.AP }}  
-          QQ: 123ddd       
-      - name: echo var2
-        run: echo "$AP"  
-        env:
-          AP: ${{ secrets.AP }}      
+     
 
 
