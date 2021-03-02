@@ -30,13 +30,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        env:
-          MY_VAR: Hi there! My name is
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FIRST_NAME: Mona
-          MIDDLE_NAME: The
-          LAST_NAME: Octocat        
-        run: echo Hello, world $MY_VAR $AP !  
+         run: echo Hello, world !  
       - name: Run S script
         env:
           AP: ${{ secrets.AP }}      
@@ -49,9 +43,10 @@ jobs:
         run: |
           #sudo bash -x test/test-fail.sh
       - name: echo var1
-        run: echo "$AP"
+        run: echo "$AP $QQ"
         env:
-          AP: ${{ secrets.AP }}         
+          AP: ${{ secrets.AP }}  
+          QQ: 123ddd       
       - name: echo var2
         run: echo "$AP"  
         env:
