@@ -109,7 +109,7 @@ ubuntu_pkg_mariadb(){
 systemctl status mariadb.service
 
     echo 'Start-------------------------'
-    sudo systemctl start mariadb
+    sudo systemctl restart mariadb
     local DBSTATUS=$(systemctl is-active mariadb)
     if [ ${DBSTATUS} = active ]; then
         echo "MARIADB is: ${DBSTATUS}"
