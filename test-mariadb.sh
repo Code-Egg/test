@@ -76,6 +76,8 @@ elif [ ${UBUNTU_V} = 20 ] ; then
 fi
 
 echo "OSNAMEVER: $OSNAMEVER"
+echo "my name: ";  whoami 
+
 
 ubuntu_pkg_mariadb(){
     apt list --installed 2>/dev/null | grep mariadb-server-${MARIAVER} >/dev/null 2>&1
@@ -86,12 +88,12 @@ ubuntu_pkg_mariadb(){
             echoY 'Remove old mariadb'
             rm_old_pkg mariadb-server
         fi
-        echoG "Install Mariadb ${MARIAVER}"
-        apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+        echo "Install Mariadb ${MARIAVER}"
+        sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
         #silent add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu bionic main"
         add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu focal main"
         if [ "$(grep "mariadb.*${MARIAVER}" /etc/apt/sources.list)" = '' ]; then
-            echoR '[Failed] to add MariaDB repository'
+            echo '[Failed] to add MariaDB repository'
         fi
         apt update
         DEBIAN_FRONTEND=noninteractive apt -y -o Dpkg::Options::='--force-confdef' \
@@ -101,9 +103,9 @@ ubuntu_pkg_mariadb(){
     systemctl start mariadb
     local DBSTATUS=$(systemctl is-active mariadb)
     if [ ${DBSTATUS} = active ]; then
-        echoG "MARIADB is: ${DBSTATUS}"
+        echo "MARIADB is: ${DBSTATUS}"
     else
-        echoR "[Failed] Mariadb is: ${DBSTATUS}"
+        echo "[Failed] Mariadb is: ${DBSTATUS}"
         exit 1
     fi
 }
