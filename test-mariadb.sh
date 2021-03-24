@@ -92,16 +92,15 @@ ubuntu_pkg_mariadb(){
         echo "add repo~~~~~~~~~~~~~"
 
         sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-        sudo  add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu bionic main"
-        #sudo add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu focal main"
+        #sudo  add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu bionic main"
+        sudo add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu focal main"
         if [ "$(grep "mariadb.*${MARIAVER}" /etc/apt/sources.list)" = '' ]; then
             echo '[Failed] to add MariaDB repository'
         fi
         echo 'start update ~~~~~~~~~~~'
         sudo apt update
         echo 'start install~~~~~~~~~~'
-        sudo DEBIAN_FRONTEND=noninteractive apt -y -o Dpkg::Options::='--force-confdef' \
-            -o Dpkg::Options::='--force-confold' install mariadb-server           
+        sudo apt-get install mariadb-server           
     fi
 systemctl status mariadb.service
 
