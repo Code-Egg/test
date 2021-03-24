@@ -103,12 +103,13 @@ ubuntu_pkg_mariadb(){
             -o Dpkg::Options::='--force-confold' install mariadb-server           
     fi
     echo 'Start-------------------------'
-    systemctl start mariadb
+    sudo systemctl start mariadb
     local DBSTATUS=$(systemctl is-active mariadb)
     if [ ${DBSTATUS} = active ]; then
         echo "MARIADB is: ${DBSTATUS}"
     else
         echo "[Failed] Mariadb is: ${DBSTATUS}"
+        systemctl status mariadb.service
         exit 1
     fi
 }
