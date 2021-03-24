@@ -91,6 +91,7 @@ ubuntu_pkg_mariadb(){
         echo "Install Mariadb ${MARIAVER}"
         sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
         #silent add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu bionic main"
+        echo "add repo~~~~~~~~~~~~~"
         add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/${MARIAVER}/ubuntu focal main"
         if [ "$(grep "mariadb.*${MARIAVER}" /etc/apt/sources.list)" = '' ]; then
             echo '[Failed] to add MariaDB repository'
