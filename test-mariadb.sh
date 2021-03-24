@@ -96,7 +96,9 @@ ubuntu_pkg_mariadb(){
         if [ "$(grep "mariadb.*${MARIAVER}" /etc/apt/sources.list)" = '' ]; then
             echo '[Failed] to add MariaDB repository'
         fi
-        apt update
+        echo 'start update ~~~~~~~~~~~'
+        sudo apt update
+        echo 'start install~~~~~~~~~~'
         DEBIAN_FRONTEND=noninteractive apt -y -o Dpkg::Options::='--force-confdef' \
             -o Dpkg::Options::='--force-confold' install mariadb-server           
     fi
