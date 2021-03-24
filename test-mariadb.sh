@@ -78,6 +78,10 @@ fi
 echo "OSNAMEVER: $OSNAMEVER"
 echo "my name: ";  whoami 
 
+echo 'AAAAAAAAAAAAAAAAAAAAAAAAAA'
+service mysql status 
+service mariadb status
+echo 'AAAAAAAAAAAAAAAAAAAAAAAAAA'
 
 ubuntu_pkg_mariadb(){
     apt list --installed 2>/dev/null | grep mariadb-server-${MARIAVER} >/dev/null 2>&1
