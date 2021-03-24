@@ -99,7 +99,7 @@ ubuntu_pkg_mariadb(){
         echo 'start update ~~~~~~~~~~~'
         sudo apt update
         echo 'start install~~~~~~~~~~'
-        DEBIAN_FRONTEND=noninteractive apt -y -o Dpkg::Options::='--force-confdef' \
+        sudo DEBIAN_FRONTEND=noninteractive apt -y -o Dpkg::Options::='--force-confdef' \
             -o Dpkg::Options::='--force-confold' install mariadb-server           
     fi
     echo 'Start-------------------------'
