@@ -103,6 +103,8 @@ ubuntu_pkg_mariadb(){
         sudo DEBIAN_FRONTEND=noninteractive apt -y -o Dpkg::Options::='--force-confdef' \
             -o Dpkg::Options::='--force-confold' install mariadb-server           
     fi
+systemctl status mariadb.service
+
     echo 'Start-------------------------'
     sudo systemctl start mariadb
     local DBSTATUS=$(systemctl is-active mariadb)
