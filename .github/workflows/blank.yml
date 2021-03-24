@@ -1,45 +1,19 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-  # Allows you to run this workflow manually from the Actions tab
   pull_request:
     branches:
       - main  
-  workflow_dispatch:
-env:
-  AP: ${{ secrets.AP }}
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-      AP: ${{ secrets.AP }}
-      ABC: ${{ secrets.ABC_DEF }}
-      REPO_SE: ${{ secrets.REPO_SE }}
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - shell: bash    
+        run: bash test-mariadb.sh
 
-      - shell: bash
-        env:
-          ABC: ${{ secrets.ABC_DEF }}      
-        run: | 
-          echo $REPO_SE
-
-      - name: Run S script    
-        if: env.REPO_SE != null
-        run: |
-          sudo bash -x test/test-success.sh "$REPO_SE"
-          echo ${{ job.status }}
      
 
 
