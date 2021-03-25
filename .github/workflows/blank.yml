@@ -12,7 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - shell: bash    
-        run: bash test-mariadb.sh
+        #run: bash test-mariadb.sh
+        run: |
+          apt-get update && apt-get upgrade -y; 
+          apt-get install mariadb-server -y
+          service mariadb start
+          service mariadb status
+
 
      
 
