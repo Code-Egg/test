@@ -14,10 +14,10 @@ jobs:
       - shell: bash    
         #run: bash test-mariadb.sh
         run: |
-          apt-get update && apt-get upgrade -y; 
-          apt-get install mariadb-server -y
-          service mariadb start
-          service mariadb status
+          sudo apt-get update && apt-get upgrade -y; 
+          sudo apt-get install mariadb-server -y
+          sudo service mariadb start
+          sudo service mariadb status
 
 
      
