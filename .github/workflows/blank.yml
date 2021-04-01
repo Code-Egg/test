@@ -14,12 +14,14 @@ jobs:
       - shell: bash    
         #run: bash test-mariadb.sh
         run: |
-          sudo apt-get update; sudo apt-get upgrade -y; 
-          sudo apt list --installed | grep -i db
+          sudo apt-get update >/dev/null 2>&1; sudo apt-get upgrade -y >/dev/null 2>&1; 
+          sudo echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+          sudo apt list --installed | grep -i maria
+          sudo echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
           sudo apt-get install mariadb-server -y
-          sudo echo 'start----------------'
-          sudo service mariadb start
-          sudo echo 'start----------------'
+          #sudo echo 'start----------------'
+          #sudo service mariadb start
+          #sudo echo 'start----------------'
           sudo service mariadb status
 
 
