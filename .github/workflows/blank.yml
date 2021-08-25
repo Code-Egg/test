@@ -15,7 +15,8 @@ jobs:
         #run: bash test-mariadb.sh
         run: echo '123'
       - name: Send mail
-        if: always()
+        #if: always()
+        if: failure()
         uses: dawidd6/action-send-mail@v2
         with:
           # mail server settings
