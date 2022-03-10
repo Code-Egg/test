@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         #if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-        if: ${{ (github.ref == 'refs/heads/master' && github.event_name == 'push') || (github.event_name == 'workflow_dispatch') }}
+        if: ${{ (github.ref == 'refs/heads/master' && github.event_name == 'push') && (github.event_name == 'workflow_dispatch') }}
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
