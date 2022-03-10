@@ -11,10 +11,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
   steps:
-      - uses: actions/checkout@v2
-      - name: test123
-        if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-        run: echo '123'    
+    - uses: actions/checkout@v2
+    - name: test123
+      if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+      run: echo '123'    
 
 
      
